@@ -61,6 +61,7 @@ export const team: TeamMember[] = [
     name: "Raghavan Nagarajan",
     role: "Principal Investigator",
     tier: "pi",
+    imageSrc: "/sutd-cleanroom/images/team/natrajan.jpeg",
   },
   {
     name: "Shireen Goh",
