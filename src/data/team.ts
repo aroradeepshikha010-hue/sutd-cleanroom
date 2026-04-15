@@ -83,15 +83,15 @@ export const team: TeamMember[] = [
   },
   // Technical Staff
   {
-    name: "Budiman Salam",
-    role: "Specialist",
-    tier: "technical",
-    imageSrc: "/sutd-cleanroom/images/team/budiman-salam.png",
-  },
-  {
     name: "Sethu Narayanan Tamilselvan",
     role: "Senior Specialist",
     tier: "technical",
     imageSrc: "/sutd-cleanroom/images/team/sethu-narayanan.png",
+  },
+  {
+    name: "Budiman Salam",
+    role: "Specialist",
+    tier: "technical",
+    imageSrc: "/sutd-cleanroom/images/team/budiman-salam.png",
   },
 ];
