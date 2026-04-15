@@ -40,7 +40,7 @@ export const equipment: Equipment[] = [
     keySpec: "Sub-10nm resolution",
     since: 2015,
     rate: "$450/hr",
-    imageSrc: "/images/equipment/ebeam-raith.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/ebeam-raith.jpg",
     features: [
       "Up to 8-inch wafer handling",
       "Sub-10 nm feature resolution",
@@ -60,7 +60,7 @@ export const equipment: Equipment[] = [
     keySpec: "~200nm feature size",
     since: 2015,
     rate: "$400/hr",
-    imageSrc: "/images/equipment/nanoscribe.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/nanoscribe.jpg",
     features: [
       "Nanoscale 3D printing (two-photon lithography)",
       "Minimum feature size ~200 nm",
@@ -78,7 +78,7 @@ export const equipment: Equipment[] = [
     keySpec: "< 0.4 \u00b5m resolution",
     since: undefined,
     rate: "$150/hr",
-    imageSrc: "/images/equipment/nanyte-beam.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/nanyte-beam.jpg",
     features: [
       "Up to 8-inch wafer",
       "Compact system",
@@ -95,7 +95,7 @@ export const equipment: Equipment[] = [
     description: "Presses a nanopatterned mould into a polymer film to replicate sub-100 nm features over large areas at low cost.",
     keySpec: "Sub-100nm replication",
     rate: "$240/hr",
-    imageSrc: "/images/equipment/nanoimprint-nanonex.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/nanoimprint-nanonex.jpg",
     features: [
       "Thermal & UV imprint modes",
       "Full-wafer (up to 12\") nanoimprinting",
@@ -112,7 +112,7 @@ export const equipment: Equipment[] = [
     description: "Aligns a photomask above a resist-coated wafer and exposes it to UV light, transferring micron-scale patterns.",
     keySpec: "Sub-micron alignment",
     rate: "$240/hr",
-    imageSrc: "/images/equipment/mask-aligner-evg610.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/mask-aligner-evg610.jpg",
     features: [
       "Broad UV exposure: 350\u2013450 nm",
       "Sub-micron alignment precision (<1 \u00b5m)",
@@ -156,7 +156,7 @@ export const equipment: Equipment[] = [
     description: "Heats source material with a focused electron beam in vacuum; evaporated atoms condense as a thin, uniform film.",
     keySpec: "Multi-material deposition",
     rate: "$300/hr",
-    imageSrc: "/images/equipment/sputtering-kjlesker.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/sputtering-kjlesker.jpg",
     features: [
       "Metals: Au, Ag, Al, Ti, Cr, Ni, W",
       "Dielectrics: SiO\u2082, Si\u2083N\u2084, Ta\u2082O\u2085, TiO\u2082",
@@ -173,7 +173,7 @@ export const equipment: Equipment[] = [
     description: "Bombards a target with energised ions, ejecting atoms that deposit as a thin film \u2014 ideal for metals and alloys.",
     keySpec: "DC & RF magnetron",
     rate: "$350/hr",
-    imageSrc: "/images/equipment/sputtering-balzers.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/sputtering-balzers.jpg",
     features: [
       "Industry standard PVD magnetron sputtering (DC & RF)",
       "Targets: Au, Ag, Al, Ti, Cr, Pt, and more",
@@ -189,7 +189,7 @@ export const equipment: Equipment[] = [
     category: "deposition",
     description: "High-performance magnetron sputtering with confocal target geometry for uniform, high-quality thin films.",
     keySpec: "Confocal geometry",
-    imageSrc: "/images/equipment/sputtering-aja.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/sputtering-aja.jpg",
     features: [
       "Confocal target geometry for uniform deposition",
       "Deposition of thermoelectric & chalcogenide materials",
@@ -204,7 +204,7 @@ export const equipment: Equipment[] = [
     description: "Grows films one atomic layer at a time using sequential, self-limiting gas-phase reactions for angstrom-level control.",
     keySpec: "Angstrom-level control",
     rate: "$100/hr",
-    imageSrc: "/images/equipment/ald-savannah.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/ald-savannah.jpg",
     features: [
       "Substrate size: up to 200 mm",
       "Deposition uniformity: <1% (Al\u2082O\u2083)",
@@ -222,7 +222,7 @@ export const equipment: Equipment[] = [
     description: "Spin coater deposits uniform resist films; wet bench provides chemical etching under safe fumehood conditions.",
     keySpec: "500\u201310,000 RPM",
     rate: "$100/hr",
-    imageSrc: "/images/equipment/spin-coater.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/spin-coater.jpg",
     features: [
       "Programmable spin speed (500\u201310,000 RPM)",
       "Compatible with various photoresists and polymers",
@@ -300,7 +300,7 @@ export const equipment: Equipment[] = [
     category: "metrology",
     description: "Scans a focused electron beam across a surface to produce nanometre-resolution images of topography and composition.",
     keySpec: "Sub-10nm imaging",
-    imageSrc: "/images/equipment/fesem-jeol.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/fesem-jeol.jpg",
     features: [
       "FEG source: high brightness & beam stability",
       "Sub-10 nm resolution at low voltages",
@@ -317,7 +317,7 @@ export const equipment: Equipment[] = [
     description: "Bounces polarised light off a thin film and measures polarisation change to determine thickness and optical constants.",
     keySpec: "Sub-nm thickness sensitivity",
     rate: "$400/hr",
-    imageSrc: "/images/equipment/ellipsometer-kla.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/ellipsometer-kla.jpg",
     features: [
       "Sub-nanometer film thickness sensitivity",
       "Wavelength range 360\u20131000 nm",
@@ -333,7 +333,7 @@ export const equipment: Equipment[] = [
     category: "metrology",
     description: "Directs X-rays at a sample and measures diffraction angles to identify crystal phases, film stress, and layer thickness.",
     keySpec: "Crystal phase analysis",
-    imageSrc: "/images/equipment/xrd-panalytical.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/xrd-panalytical.jpg",
     features: [
       "\u0398\u20132\u03b8 scans, rocking curves & reciprocal space mapping",
       "Residual stress & texture analysis in thin films",
@@ -364,7 +364,7 @@ export const equipment: Equipment[] = [
     category: "metrology",
     description: "UV-Vis microspectrophotometer for reflectance, transmittance and absorbance measurements at micron scale.",
     keySpec: "< 1 \u00b5m spatial resolution",
-    imageSrc: "/images/equipment/microspectrometer-craic.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/microspectrometer-craic.jpg",
     features: [
       "Wavelength range: 400\u2013900 nm (UV\u2013Vis)",
       "Spatial resolution: < 1 \u00b5m (microspot)",
@@ -398,7 +398,7 @@ export const equipment: Equipment[] = [
     category: "metrology",
     description: "Contact and optical profilometry for step height, roughness, and thin film thickness measurements.",
     keySpec: "Step height measurement",
-    imageSrc: "/images/equipment/profilometer.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/profilometer.jpg",
     features: ["Step height measurement", "Surface roughness analysis", "Thin film thickness"],
   },
   {
@@ -424,7 +424,7 @@ export const equipment: Equipment[] = [
     category: "packaging",
     description: "Bonds fine metal wires between chip bond pads and package leads, completing electrical connections.",
     keySpec: "Au/Al wire 18\u201350 \u00b5m",
-    imageSrc: "/images/equipment/wire-bonder.jpg",
+    imageSrc: "/sutd-cleanroom/images/equipment/wire-bonder.jpg",
     features: [
       "Wedge-wedge thermosonic/ultrasonic bonding",
       "Au/Al wire (18\u201350 \u00b5m)",

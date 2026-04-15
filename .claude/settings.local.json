@@ -7,7 +7,16 @@
       "WebFetch(domain:www.bcg.com)",
       "WebFetch(domain:metadesign.com)",
       "Bash(npm install:*)",
-      "WebFetch(domain:www.sutd.edu.sg)"
+      "WebFetch(domain:www.sutd.edu.sg)",
+      "Bash(find src:*)",
+      "Bash(perl -pi -e 's/text-white\\\\/70/text-text-secondary/g; s/text-white\\\\/80/text-text-secondary/g; s/text-white\\\\/50/text-text-muted/g' src/components/Hero.astro src/components/Mission.astro src/components/Navigation.astro)",
+      "Bash(gh repo:*)",
+      "Bash(brew list:*)",
+      "Bash(brew install:*)",
+      "Read(//usr/local/bin/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//Users/deepshikha/bin/**)",
+      "Bash(npm run:*)"
     ]
   }
 }
