@@ -30,6 +30,7 @@ const startups = [
     tagline: "Acoustic Microfluidic Cell Sorting",
     founded: "2019",
     logo: "/sutd-cleanroom/images/Startups/startup1.png",
+    image: "/sutd-cleanroom/images/startups-detail/cellwave-sorting.jpg",
     founder: "Co-founded by Assoc. Prof. Ye Ai",
     color: "#22c55e",
     website: "https://cellwavetechnologies.com",
@@ -67,6 +68,7 @@ const startups = [
     tagline: "3D Printing & Maker Solutions",
     founded: "2020",
     logo: "/sutd-cleanroom/images/Startups/startup4.jpg",
+    image: "/sutd-cleanroom/images/startups-detail/polymate-space.jpg",
     founder: "Founded by SUTD alumni",
     color: "#f59e0b",
     website: "https://www.polymate.tech",
@@ -131,6 +133,13 @@ const stats = [
           <div class="bg-surface-card border border-border rounded-2xl overflow-hidden hover:border-border-hover transition-colors duration-300">
             <!-- Header bar with accent -->
             <div class="h-1" style={`background: ${s.color};`}></div>
+
+            {/* Product image */}
+            {s.image && (
+              <div class="w-full aspect-[3/1] overflow-hidden">
+                <img src={s.image} alt={`${s.name} product`} class="w-full h-full object-cover" loading="lazy" />
+              </div>
+            )}
 
             <div class="p-8 md:p-10">
               <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
