@@ -1,0 +1,211 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+
+import "../styles/global.css";
+
+const startups = [
+  {
+    name: "Enlitho",
+    tagline: "Micro-Nano Fabrication Foundry",
+    founded: "2016",
+    logo: "/sutd-cleanroom/images/Startups/startup2.jpg",
+    founder: "Co-founded by Prof. Hong Yee Low",
+    color: "#3b82f6",
+    website: "https://www.enlitho.com.sg",
+    description: "Enlitho is a one-stop micro-nano tech solutions provider born directly from research at the SUTD Cleanroom. What began as academic innovation in nanoimprint lithography has grown into a commercial foundry serving the region's advanced manufacturing needs.",
+    capabilities: [
+      "Precision lithography (sub-5nm resolution)",
+      "Master mould fabrication (Si, Ni, up to 8\" wafer)",
+      "UV nanoimprint lithography",
+      "Design-for-manufacturing & simulation",
+      "Low-volume to high-volume scale-up",
+      "ISO 6 certified in-house cleanroom",
+    ],
+    impact: "Enlitho bridges the gap between academic research and industrial manufacturing, enabling researchers and companies across Asia to access world-class nanofabrication without building their own cleanroom.",
+  },
+  {
+    name: "CellWave Technologies",
+    tagline: "Acoustic Microfluidic Cell Sorting",
+    founded: "2019",
+    logo: "/sutd-cleanroom/images/Startups/startup1.png",
+    founder: "Co-founded by Assoc. Prof. Ye Ai",
+    color: "#22c55e",
+    website: "https://cellwavetechnologies.com",
+    description: "CellWave Technologies commercialised a breakthrough in acoustic microfluidic cell sorting developed in SUTD's labs. Their technology uses highly focused sound wave beams (50\u00b5m wide) within disposable microfluidic cartridges to isolate single cells with unprecedented gentleness.",
+    capabilities: [
+      "Single-cell level acoustic sorting",
+      "Disposable microfluidic cartridges",
+      "Preserves viability of fragile cell types",
+      "Applications in gene editing & immunology",
+      "Gentler alternative to drop-in-air sorters",
+      "Compact benchtop form factor",
+    ],
+    impact: "Published in leading journals and featured in ScienceDaily, CellWave's technology addresses a critical gap in life sciences \u2014 enabling researchers to sort even the most delicate cells without the damage caused by conventional methods.",
+  },
+  {
+    name: "Metatag",
+    tagline: "Metasurface Security & Authentication",
+    founded: "2020",
+    logo: "/sutd-cleanroom/images/Startups/startup3.png",
+    founder: "Rooted in SUTD metasurface research",
+    color: "#8b5cf6",
+    description: "Metatag leverages SUTD's cutting-edge metasurface and nanostructure research to develop next-generation optical security and authentication solutions. By engineering sub-wavelength structures, Metatag creates physical unclonable features that are virtually impossible to counterfeit.",
+    capabilities: [
+      "Metasurface-based optical security tags",
+      "Anti-counterfeiting nanostructures",
+      "Physical unclonable functions",
+      "Multiplexed meta-image displays",
+      "Plasmonic color printing",
+      "Nanofabrication of security features",
+    ],
+    impact: "Drawing on SUTD's world-class publications in Nature Nanotechnology and Advanced Materials, Metatag is translating fundamental metasurface science into commercially viable security products.",
+  },
+  {
+    name: "PolyMate",
+    tagline: "3D Printing & Maker Solutions",
+    founded: "2020",
+    logo: "/sutd-cleanroom/images/Startups/startup4.jpg",
+    founder: "Founded by SUTD alumni",
+    color: "#f59e0b",
+    website: "https://www.polymate.tech",
+    description: "PolyMate is an SUTD alumni startup that has grown from a student project into Singapore's go-to consumer 3D printing and maker space. Located near SUTD campus, PolyMate provides rapid prototyping, laser cutting, and fabrication services to researchers, startups, and makers.",
+    capabilities: [
+      "3D printing services & materials",
+      "Laser cutting & engraving",
+      "Design consultation",
+      "Maker workshops & training",
+      "Rapid prototyping for startups",
+      "STEAMunity education partner",
+    ],
+    impact: "PolyMate closes the loop in SUTD's innovation ecosystem \u2014 providing the rapid prototyping and fabrication services that researchers and student entrepreneurs need to iterate quickly from concept to physical product.",
+  },
+];
+
+const stats = [
+  { value: "4", label: "Startups Incubated" },
+  { value: "2016", label: "First Venture Founded" },
+  { value: "3", label: "Deep-Tech Domains" },
+  { value: "50+", label: "Jobs Created" },
+];
+---
+
+<Layout title="Deep-Tech Startups — SUTD Cleanroom" description="From lab bench to market: deep-tech startups born in the SUTD Cleanroom.">
+  <Navigation />
+
+  <main class="pt-24 pb-16 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <!-- Back link -->
+      <a href="/sutd-cleanroom/" class="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Home
+      </a>
+
+      <!-- Hero -->
+      <div class="mb-12">
+        <span class="inline-block text-xs font-semibold text-accent uppercase tracking-wider mb-3">Deep-Tech Entrepreneurship</span>
+        <h1 class="text-4xl md:text-5xl font-bold text-text-primary mb-6 tracking-tight leading-tight">
+          Where Research Becomes<br />Enterprise
+        </h1>
+        <p class="text-lg text-text-secondary leading-relaxed max-w-3xl">
+          The SUTD Cleanroom is more than a fabrication facility &mdash; it is a launchpad for deep-tech ventures. When researchers have access to publication-grade equipment, expert mentorship, and a culture that values translation, breakthrough science doesn't stay in the lab. It becomes a company.
+        </p>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+        {stats.map((s) => (
+          <div class="bg-surface-card border border-border rounded-xl p-5 text-center">
+            <p class="text-3xl font-bold text-text-primary">{s.value}</p>
+            <p class="text-xs text-text-muted uppercase tracking-wider mt-1">{s.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Startup cards -->
+      <div class="space-y-10">
+        {startups.map((s, i) => (
+          <div class="bg-surface-card border border-border rounded-2xl overflow-hidden hover:border-border-hover transition-colors duration-300">
+            <!-- Header bar with accent -->
+            <div class="h-1" style={`background: ${s.color};`}></div>
+
+            <div class="p-8 md:p-10">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- Left: Logo + info -->
+                <div class="lg:col-span-2">
+                  <div class="flex items-start gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-xl bg-white border border-border flex items-center justify-center shrink-0 p-2">
+                      <img src={s.logo} alt={s.name} class="max-w-full max-h-full object-contain" />
+                    </div>
+                    <div>
+                      <h2 class="text-2xl font-bold text-text-primary">{s.name}</h2>
+                      <p class="text-sm text-text-muted">{s.tagline}</p>
+                      <p class="text-xs text-accent mt-1">{s.founder} &middot; Est. {s.founded}</p>
+                    </div>
+                  </div>
+
+                  <p class="text-text-secondary leading-relaxed mb-4">
+                    {s.description}
+                  </p>
+
+                  <div class="border-l-3 border-accent/30 pl-4 my-6">
+                    <p class="text-sm text-text-secondary italic leading-relaxed">
+                      {s.impact}
+                    </p>
+                  </div>
+
+                  {s.website && (
+                    <a href={s.website} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-accent hover:underline">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                      </svg>
+                      Visit Website
+                    </a>
+                  )}
+                </div>
+
+                <!-- Right: Capabilities -->
+                <div>
+                  <h4 class="text-xs font-semibold text-text-muted uppercase tracking-widest mb-4">Capabilities</h4>
+                  <div class="space-y-2">
+                    {s.capabilities.map((c) => (
+                      <div class="flex items-start gap-2">
+                        <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-sm text-text-secondary">{c}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-16 bg-accent/5 border border-accent/20 rounded-2xl p-8 md:p-12 text-center">
+        <h2 class="text-2xl font-bold text-text-primary mb-3">Have a Deep-Tech Idea?</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto mb-6 leading-relaxed">
+          The SUTD Cleanroom welcomes researchers and entrepreneurs looking to translate innovation into products. From early prototyping to fabrication scale-up, we provide the equipment, expertise, and ecosystem to help you build.
+        </p>
+        <a href="/sutd-cleanroom/#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-lg font-medium text-sm hover:bg-accent/90 transition-colors">
+          Get in Touch
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
