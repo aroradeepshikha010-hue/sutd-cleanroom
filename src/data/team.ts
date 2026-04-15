@@ -78,6 +78,7 @@ export const team: TeamMember[] = [
     name: "Tee Hui Teo",
     role: "Principal Investigator",
     tier: "pi",
+    imageSrc: "/sutd-cleanroom/images/team/teo-hui.png",
   },
   // Technical Staff
   {
