@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor">
+  <!-- SUTD geometric logo - 4 interlocking angular letters arranged in a square grid -->
+  <!-- Top-left: S -->
+  <path d="M4,4 h18 v6 h-12 v6 h12 v6 h-18 v-6 h12 v-6 h-12 z"/>
+  <!-- Top-right: U -->
+  <path d="M28,4 h6 v12 h12 v-12 h6 v18 h-24 z"/>
+  <!-- Bottom-left: T -->
+  <path d="M4,28 h18 v6 h-6 v12 h-6 v-12 h-6 z"/>
+  <!-- Bottom-right: D -->
+  <path d="M28,28 h18 v18 h-18 z M34,34 v6 h6 v-6 z"/>
+
+  <!-- Refined geometric pattern matching the SUTD brand mark -->
+  <!-- This is a simplified version - the actual logo uses interlocking maze-like strokes -->
+</svg>

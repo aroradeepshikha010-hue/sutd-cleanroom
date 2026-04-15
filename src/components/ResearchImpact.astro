@@ -1,0 +1,61 @@
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+import { journals, highlights } from "../data/publications";
+---
+
+<section id="research" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <SectionHeading
+      title="Research Impact"
+      subtitle="Our cleanroom enables world-class research published in the most prestigious journals."
+    />
+
+    <!-- Journal marquee -->
+    <div class="overflow-hidden mb-16 relative" data-reveal>
+      <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-surface to-transparent z-10"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-surface to-transparent z-10"></div>
+      <div class="flex animate-marquee whitespace-nowrap">
+        {[...journals, ...journals].map((j) => (
+          <span class="mx-8 text-lg text-text-muted font-medium italic shrink-0">
+            {j}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Research highlights -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal-stagger>
+      {highlights.map((pub) => (
+        <div class="bg-surface-card border border-border rounded-xl overflow-hidden hover:border-border-hover transition-all duration-300 group">
+          <!-- Image -->
+          {pub.imageSrc && (
+            <div class="aspect-[16/10] overflow-hidden bg-surface-elevated">
+              <img
+                src={pub.imageSrc}
+                alt={pub.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          )}
+
+          <div class="p-6">
+            <!-- Journal badge -->
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-2 h-2 rounded-full bg-accent"></span>
+              <span class="text-xs text-accent font-medium">{pub.journal}</span>
+              <span class="text-xs text-text-muted ml-auto">{pub.year}</span>
+            </div>
+
+            <h3 class="text-base font-semibold text-white mb-2 leading-snug group-hover:text-accent transition-colors duration-200">
+              {pub.title}
+            </h3>
+            <p class="text-sm text-text-secondary leading-relaxed">
+              {pub.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

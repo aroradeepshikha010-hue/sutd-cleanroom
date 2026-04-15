@@ -1,0 +1,75 @@
+---
+const pillars = [
+  {
+    title: "Research Excellence",
+    description: "World-class nanotech low-mid TRL research driving innovation in Quantum, Semiconductors and Space",
+    color: "#8b5cf6",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>`,
+  },
+  {
+    title: "Hands-On Education",
+    description: "Providing UG & PG students with first-principles cleanroom experience — from design to device",
+    color: "#22c55e",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>`,
+  },
+  {
+    title: "Deep-Tech Startups",
+    description: "Enabling next-generation startups from cutting-edge research, translating lab innovations to market",
+    color: "#ef4444",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" /></svg>`,
+  },
+  {
+    title: "Regional Leader in Lithography",
+    description: "Particularly Two-Photon Polymerization Lithography (TPL). Leading Singapore's advanced lithography capabilities",
+    color: "#3b82f6",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>`,
+  },
+];
+---
+
+<section class="py-24 px-6 relative overflow-hidden">
+  <!-- Background glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/3 rounded-full blur-[150px]"></div>
+
+  <div class="max-w-5xl mx-auto relative">
+    <!-- Heading -->
+    <div class="text-center mb-16" data-reveal>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Our Vision & Mission</h2>
+      <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+    </div>
+
+    <!-- 2x2 Bento grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-reveal-stagger>
+      {pillars.map((p) => (
+        <div
+          class="relative rounded-2xl p-8 overflow-hidden group transition-all duration-300 hover:-translate-y-1"
+          style={`background: linear-gradient(135deg, ${p.color}22 0%, ${p.color}08 100%); border: 1px solid ${p.color}30;`}
+        >
+          <!-- Hover glow -->
+          <div
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={`background: radial-gradient(circle at 80% 20%, ${p.color}15 0%, transparent 60%);`}
+          ></div>
+
+          <div class="relative">
+            <!-- Title row with icon -->
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <h3 class="text-xl font-bold text-white leading-snug">{p.title}</h3>
+              <div class="shrink-0 opacity-40" style={`color: ${p.color};`} set:html={p.icon} />
+            </div>
+
+            <p class="text-white/70 leading-relaxed text-sm">{p.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Tagline -->
+    <div class="text-center mt-12" data-reveal>
+      <p class="text-text-secondary text-lg italic max-w-2xl mx-auto">
+        Building Singapore's future in quantum, semiconductor, and space through
+        design-AI-centric training & research excellence
+      </p>
+    </div>
+  </div>
+</section>

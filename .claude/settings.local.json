@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:semix-iitb.com)",
+      "WebSearch",
+      "WebFetch(domain:www.bcg.com)",
+      "WebFetch(domain:metadesign.com)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:www.sutd.edu.sg)"
+    ]
+  }
+}

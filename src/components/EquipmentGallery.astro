@@ -1,0 +1,55 @@
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+import { equipment, categoryColors } from "../data/equipment";
+---
+
+<section id="equipment" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeading
+      title="Our Equipment"
+      subtitle="20+ tools across 5 capability areas — from nanopatterning to device characterisation."
+    />
+
+    <!-- Gallery grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" data-reveal-stagger>
+      {equipment.map((item) => {
+        const color = categoryColors[item.category];
+        return (
+          <a
+            href={`/equipment/${item.id}`}
+            class="group block bg-surface-card border border-border rounded-xl overflow-hidden hover:border-border-hover transition-all duration-300 hover:-translate-y-1"
+          >
+            {/* Image */}
+            <div class="aspect-square overflow-hidden bg-surface-elevated relative p-3 flex items-center justify-center">
+              {item.imageSrc ? (
+                <img
+                  src={item.imageSrc}
+                  alt={item.name}
+                  class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center">
+                  <svg class="w-10 h-10 text-text-muted opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              )}
+            </div>
+
+            {/* Category accent bar */}
+            <div class="h-0.5" style={`background-color: ${color};`}></div>
+
+            {/* Label */}
+            <div class="p-3">
+              <h3 class="text-sm font-semibold text-white leading-snug group-hover:text-accent transition-colors duration-200">
+                {item.name}
+              </h3>
+              <p class="text-xs text-text-muted mt-0.5">{item.model}</p>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+import StatCounter from "./ui/StatCounter.astro";
+---
+
+<section id="about" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Two-column: image + text -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16" data-reveal>
+      <!-- Image -->
+      <div class="rounded-2xl overflow-hidden border border-border">
+        <img
+          src="/images/hero/cleanroom-layout.png"
+          alt="SUTD Cleanroom floor plan"
+          class="w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Text -->
+      <div>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">About the Cleanroom</h2>
+        <p class="text-text-secondary leading-relaxed text-lg mb-6">
+          A certified Class 1000 (ISO 6) facility at SUTD, spanning 300 m&sup2; of
+          controlled environment with 20+ advanced tools for micro and nanofabrication.
+        </p>
+        <p class="text-text-secondary leading-relaxed">
+          Established in 2015, the cleanroom supports research, education, and
+          entrepreneurship across lithography, thin-film deposition, etching,
+          and metrology.
+        </p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-reveal>
+      <div class="bg-surface-card border border-border rounded-xl">
+        <StatCounter value="2015" label="Established" isNumeric={true} />
+      </div>
+      <div class="bg-surface-card border border-border rounded-xl">
+        <StatCounter value="6" label="ISO Class" prefix="ISO " isNumeric={false} />
+      </div>
+      <div class="bg-surface-card border border-border rounded-xl">
+        <StatCounter value="300" label="Square Metres" suffix=" m&sup2;" isNumeric={true} />
+      </div>
+      <div class="bg-surface-card border border-border rounded-xl">
+        <StatCounter value="20" label="Advanced Tools" suffix="+" isNumeric={true} />
+      </div>
+    </div>
+
+  </div>
+</section>

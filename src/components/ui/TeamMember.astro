@@ -1,0 +1,39 @@
+---
+import type { TeamMember } from "../../data/team";
+
+interface Props {
+  member: TeamMember;
+  size?: "lg" | "md";
+}
+
+const { member, size = "md" } = Astro.props;
+const initials = member.name.split(" ").map(n => n[0]).join("");
+const isLarge = size === "lg";
+---
+
+<div class="bg-surface-card border border-border rounded-xl overflow-hidden hover:border-border-hover transition-all duration-300 group">
+  <!-- Photo / Initials -->
+  <div class={`${isLarge ? 'aspect-[3/4]' : 'aspect-square'} overflow-hidden bg-surface-elevated relative flex items-center justify-center`}>
+    {member.imageSrc ? (
+      <img
+        src={member.imageSrc}
+        alt={member.name}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+      />
+    ) : (
+      <span class={`${isLarge ? 'text-4xl' : 'text-2xl'} font-bold text-text-muted/30`}>
+        {initials}
+      </span>
+    )}
+  </div>
+
+  <!-- Info -->
+  <div class="p-4">
+    <h4 class={`${isLarge ? 'text-base' : 'text-sm'} font-semibold text-white mb-0.5 leading-snug`}>{member.name}</h4>
+    <p class="text-xs text-accent">{member.role}</p>
+    {member.title && (
+      <p class="text-xs text-text-muted mt-1 leading-snug">{member.title}</p>
+    )}
+  </div>
+</div>

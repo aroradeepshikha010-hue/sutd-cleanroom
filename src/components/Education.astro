@@ -1,0 +1,73 @@
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const features = [
+  {
+    title: "First-Principles Learning",
+    description: "Students engage with every step of the fabrication process, from mask design and lithography to thin-film deposition and device characterisation.",
+  },
+  {
+    title: "Design-AI-Centric Training",
+    description: "Combining computational design tools with hands-on fabrication, preparing students for the AI-augmented future of semiconductor manufacturing.",
+  },
+  {
+    title: "Research-Embedded Curriculum",
+    description: "UG and PG students work alongside faculty on active research projects, gaining real experience with publication-grade equipment and processes.",
+  },
+  {
+    title: "Safety & Protocol Training",
+    description: "Comprehensive cleanroom safety induction and gowning protocol training, ensuring students meet industry-standard operational requirements.",
+  },
+];
+---
+
+<section id="education" class="py-24 px-6 relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-surface via-surface-elevated/30 to-surface pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto relative">
+    <SectionHeading
+      title="Education & Training"
+      subtitle="From design to device — providing UG and PG students with first-principles cleanroom experience."
+    />
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Narrative -->
+      <div data-reveal>
+        <p class="text-text-secondary leading-relaxed text-lg mb-8">
+          The SUTD Cleanroom is not just a research facility — it is a teaching laboratory
+          where the next generation of engineers and scientists gain hands-on experience
+          with the same tools used in cutting-edge research. Our philosophy is simple:
+          <span class="text-white font-medium">learn by doing, from design to device</span>.
+        </p>
+        <p class="text-text-secondary leading-relaxed mb-8">
+          Students undertake complete fabrication projects, experiencing the full
+          micro/nanofabrication workflow. This first-principles approach ensures
+          graduates understand not just the theory, but the practical realities of
+          working at the nanoscale.
+        </p>
+        <div class="flex items-center gap-4 px-5 py-4 rounded-xl bg-accent/5 border border-accent/20">
+          <svg class="w-6 h-6 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+          </svg>
+          <p class="text-sm text-text-secondary">
+            <span class="text-white font-medium">STEM Workshops</span> also available for schools and institutions seeking
+            hands-on nanotechnology education.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature cards -->
+      <div class="space-y-4" data-reveal-stagger>
+        {features.map((f, i) => (
+          <div class="flex gap-4 p-5 rounded-xl bg-surface-card border border-border hover:border-border-hover transition-colors duration-300">
+            <span class="text-accent font-bold text-lg mt-0.5 shrink-0">0{i + 1}</span>
+            <div>
+              <h3 class="text-base font-semibold text-white mb-1">{f.title}</h3>
+              <p class="text-sm text-text-secondary leading-relaxed">{f.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

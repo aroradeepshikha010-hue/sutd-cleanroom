@@ -1,0 +1,15 @@
+---
+interface Props {
+  class?: string;
+  stagger?: boolean;
+  tag?: string;
+}
+
+const { class: className = "", stagger = false, tag = "div" } = Astro.props;
+const Tag = tag as any;
+const attr = stagger ? "data-reveal-stagger" : "data-reveal";
+---
+
+<Tag class={className} {...{ [attr]: "" }}>
+  <slot />
+</Tag>

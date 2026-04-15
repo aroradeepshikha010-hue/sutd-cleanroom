@@ -1,0 +1,50 @@
+---
+import SectionHeading from "./ui/SectionHeading.astro";
+import TeamMemberCard from "./ui/TeamMember.astro";
+import { team } from "../data/team";
+
+const leadership = team.filter((m) => m.tier === "leadership");
+const pis = team.filter((m) => m.tier === "pi");
+const technical = team.filter((m) => m.tier === "technical");
+---
+
+<section id="team" class="py-24 px-6 relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-surface via-surface-elevated/30 to-surface pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto relative">
+    <SectionHeading
+      title="Our Team"
+      subtitle="Cleanroom leadership, principal investigators, and technical specialists driving research excellence."
+    />
+
+    <!-- Leadership -->
+    <div class="mb-16" data-reveal>
+      <h3 class="text-sm font-semibold text-text-muted uppercase tracking-widest mb-8 text-center">Leadership</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        {leadership.map((m) => (
+          <TeamMemberCard member={m} size="lg" />
+        ))}
+      </div>
+    </div>
+
+    <!-- Principal Investigators -->
+    <div class="mb-16" data-reveal>
+      <h3 class="text-sm font-semibold text-text-muted uppercase tracking-widest mb-8 text-center">Principal Investigators</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {pis.map((m) => (
+          <TeamMemberCard member={m} size="md" />
+        ))}
+      </div>
+    </div>
+
+    <!-- Technical Staff -->
+    <div data-reveal>
+      <h3 class="text-sm font-semibold text-text-muted uppercase tracking-widest mb-8 text-center">Technical Staff</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+        {technical.map((m) => (
+          <TeamMemberCard member={m} size="md" />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
