@@ -436,11 +436,11 @@ export const equipment: Equipment[] = [
   {
     id: "rtp",
     name: "Rapid Thermal Processor",
-    model: "RTP System",
+    model: "ECOPIA RTP-1300",
     category: "packaging",
-    description: "High-temperature rapid annealing for material processing and device fabrication.",
-    keySpec: "Rapid thermal annealing",
-    features: ["Rapid heating and cooling", "Controlled atmosphere processing"],
+    description: "High-temperature rapid annealing up to 1300\u00b0C for dopant activation, contact annealing, and material processing.",
+    keySpec: "Up to 1300\u00b0C",
+    features: ["Maximum temperature 1300\u00b0C", "Dopant activation and annealing", "Rapid heating and cooling", "Controlled atmosphere processing"],
   },
   {
     id: "cryo-probe",

@@ -17,12 +17,13 @@ export const team: TeamMember[] = [
   {
     name: "Joel Yang",
     role: "Professor",
-    title: "Director, Cleanroom",
+    title: "Director (Cleanroom), Associate Head EPD",
     tier: "leadership",
   },
   {
     name: "Zhaogang Dong",
-    role: "Deputy Director, Cleanroom",
+    role: "Associate Professor, SMT",
+    title: "Deputy Director, Cleanroom",
     tier: "leadership",
   },
 
@@ -35,6 +36,7 @@ export const team: TeamMember[] = [
   {
     name: "Dawn Tan",
     role: "Principal Investigator",
+    title: "Provost's Chair Professor, EPD",
     tier: "pi",
   },
   {
@@ -45,6 +47,7 @@ export const team: TeamMember[] = [
   {
     name: "Ye Ai",
     role: "Principal Investigator",
+    title: "Co-Deputy Director (CHEERS)",
     tier: "pi",
   },
   {
