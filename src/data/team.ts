@@ -19,12 +19,14 @@ export const team: TeamMember[] = [
     role: "Professor",
     title: "Director (Cleanroom), Associate Head EPD",
     tier: "leadership",
+    imageSrc: "/sutd-cleanroom/images/team/joel-yang.png",
   },
   {
     name: "Zhaogang Dong",
     role: "Associate Professor, SMT",
     title: "Deputy Director, Cleanroom",
     tier: "leadership",
+    imageSrc: "/sutd-cleanroom/images/team/zhaogang-dong.png",
   },
 
   // Principal Investigators
@@ -38,6 +40,7 @@ export const team: TeamMember[] = [
     role: "Principal Investigator",
     title: "Provost's Chair Professor, EPD",
     tier: "pi",
+    imageSrc: "/sutd-cleanroom/images/team/dawn-tan.png",
   },
   {
     name: "Shubhakar Kalya",
@@ -49,6 +52,7 @@ export const team: TeamMember[] = [
     role: "Principal Investigator",
     title: "Co-Deputy Director (CHEERS)",
     tier: "pi",
+    imageSrc: "/sutd-cleanroom/images/team/ye-ai.png",
   },
   {
     name: "Raghavan Nagarajan",
@@ -75,10 +79,12 @@ export const team: TeamMember[] = [
     name: "Budiman Salam",
     role: "Specialist",
     tier: "technical",
+    imageSrc: "/sutd-cleanroom/images/team/budiman-salam.png",
   },
   {
     name: "Sethu Narayanan Tamilselvan",
     role: "Senior Specialist",
     tier: "technical",
+    imageSrc: "/sutd-cleanroom/images/team/sethu-narayanan.png",
   },
 ];
