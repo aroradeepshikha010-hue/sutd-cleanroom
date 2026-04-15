@@ -13,6 +13,7 @@ export const team: TeamMember[] = [
     role: "Professor",
     title: "Assoc. Provost (Research & International Relations)",
     tier: "leadership",
+    imageSrc: "/sutd-cleanroom/images/team/ricky-ang.png",
   },
   {
     name: "Joel Yang",
@@ -34,6 +35,7 @@ export const team: TeamMember[] = [
     name: "Hong Yee Low",
     role: "Principal Investigator",
     tier: "pi",
+    imageSrc: "/sutd-cleanroom/images/team/hong-yee-low.png",
   },
   {
     name: "Dawn Tan",
@@ -46,6 +48,7 @@ export const team: TeamMember[] = [
     name: "Shubhakar Kalya",
     role: "Principal Investigator",
     tier: "pi",
+    imageSrc: "/sutd-cleanroom/images/team/shubhakar-kalya.png",
   },
   {
     name: "Ye Ai",
@@ -63,11 +66,13 @@ export const team: TeamMember[] = [
     name: "Shireen Goh",
     role: "Principal Investigator",
     tier: "pi",
+    imageSrc: "/sutd-cleanroom/images/team/shireen-goh.png",
   },
   {
     name: "Lin Wu",
     role: "Principal Investigator",
     tier: "pi",
+    imageSrc: "/sutd-cleanroom/images/team/lin-wu.png",
   },
   {
     name: "Tee Hui Teo",
