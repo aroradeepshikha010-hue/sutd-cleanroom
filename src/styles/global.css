@@ -80,6 +80,7 @@ body {
 [data-reveal-stagger].revealed > *:nth-child(6) { transition-delay: 300ms; opacity: 1; transform: translateY(0); }
 [data-reveal-stagger].revealed > *:nth-child(7) { transition-delay: 350ms; opacity: 1; transform: translateY(0); }
 [data-reveal-stagger].revealed > *:nth-child(8) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+[data-reveal-stagger].revealed > *:nth-child(n+9) { transition-delay: 450ms; opacity: 1; transform: translateY(0); }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {

@@ -3,53 +3,387 @@ import SectionHeading from "./ui/SectionHeading.astro";
 import { equipment, categoryColors } from "../data/equipment";
 ---
 
-<section id="equipment" class="py-24 px-6">
+<section id="equipment" class="py-24 px-6 overflow-hidden">
   <div class="max-w-7xl mx-auto">
     <SectionHeading
       title="Our Equipment"
       subtitle="20+ tools across 5 capability areas — from nanopatterning to device characterisation."
     />
 
-    <!-- Gallery grid -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" data-reveal-stagger>
-      {equipment.map((item) => {
-        const color = categoryColors[item.category];
-        return (
-          <a
-            href={`/equipment/${item.id}`}
-            class="group block bg-surface-card border border-border rounded-xl overflow-hidden hover:border-border-hover transition-all duration-300 hover:-translate-y-1"
-          >
-            {/* Image */}
-            <div class="aspect-square overflow-hidden bg-surface-elevated relative p-3 flex items-center justify-center">
-              {item.imageSrc ? (
-                <img
-                  src={item.imageSrc}
-                  alt={item.name}
-                  class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              ) : (
-                <div class="w-full h-full flex items-center justify-center">
-                  <svg class="w-10 h-10 text-text-muted opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-              )}
-            </div>
+    <div class="relative" data-reveal>
+      <!-- Carousel viewport -->
+      <div class="carousel-viewport" id="carousel-viewport" aria-roledescription="carousel" aria-label="Equipment carousel">
+        <div class="carousel-track" id="carousel-track">
+          {equipment.map((item, index) => {
+            const color = categoryColors[item.category];
+            return (
+              <div class="carousel-slide" data-index={index}>
+                <a
+                  href={`/equipment/${item.id}`}
+                  class="carousel-card group block bg-surface-card border border-border rounded-xl overflow-hidden transition-all duration-300"
+                  tabindex={index === 0 ? "0" : "-1"}
+                >
+                  {/* Image */}
+                  <div class="aspect-[3/4] overflow-hidden bg-surface-elevated relative p-4 flex items-center justify-center">
+                    {item.imageSrc ? (
+                      <img
+                        src={item.imageSrc}
+                        alt={item.name}
+                        class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                        loading={index < 3 ? "eager" : "lazy"}
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-12 h-12 text-text-muted opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
 
-            {/* Category accent bar */}
-            <div class="h-0.5" style={`background-color: ${color};`}></div>
+                  {/* Category accent bar */}
+                  <div class="h-0.5" style={`background-color: ${color};`}></div>
 
-            {/* Label */}
-            <div class="p-3">
-              <h3 class="text-sm font-semibold text-white leading-snug group-hover:text-accent transition-colors duration-200">
-                {item.name}
-              </h3>
-              <p class="text-xs text-text-muted mt-0.5">{item.model}</p>
-            </div>
-          </a>
-        );
-      })}
+                  {/* Label */}
+                  <div class="p-3">
+                    <h3 class="text-sm font-semibold text-white leading-snug group-hover:text-accent transition-colors duration-200">
+                      {item.name}
+                    </h3>
+                    <p class="text-xs text-text-muted mt-0.5">{item.model}</p>
+                  </div>
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- Navigation arrows -->
+      <button class="carousel-arrow carousel-arrow-left" id="carousel-prev" aria-label="Previous equipment">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="carousel-arrow carousel-arrow-right" id="carousel-next" aria-label="Next equipment">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Active equipment info -->
+      <div id="carousel-info" class="text-center mt-8 transition-opacity duration-200" aria-live="polite">
+        <h3 id="carousel-name" class="text-xl md:text-2xl font-bold text-white"></h3>
+        <p id="carousel-model" class="text-sm text-accent font-medium mt-1"></p>
+      </div>
+
+      <!-- Counter -->
+      <p id="carousel-counter" class="text-center text-xs text-text-muted mt-4"></p>
     </div>
   </div>
 </section>
+
+<!-- Equipment data for JS -->
+<script id="equipment-data" type="application/json" set:html={JSON.stringify(equipment.map(e => ({
+  name: e.name,
+  model: e.model,
+  keySpec: e.keySpec,
+  category: e.category
+})))}></script>
+
+<style>
+  .carousel-viewport {
+    perspective: 1200px;
+    perspective-origin: center center;
+    height: 440px;
+    position: relative;
+    overflow: visible;
+  }
+
+  .carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    transform: translate(-50%, -50%) scale(0.6);
+    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .carousel-slide[data-position="center"] {
+    transform: translate(-50%, -50%) translateZ(0px) scale(1);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+    filter: blur(0px);
+  }
+
+  .carousel-slide[data-position="center"] .carousel-card {
+    border-color: var(--color-border-hover);
+  }
+
+  .carousel-slide[data-position="center"] .carousel-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+  }
+
+  .carousel-slide[data-position="left"] {
+    transform: translate(calc(-50% - 280px), -50%) translateZ(-120px) scale(0.8);
+    opacity: 0.5;
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+    filter: blur(2px);
+  }
+
+  .carousel-slide[data-position="right"] {
+    transform: translate(calc(-50% + 280px), -50%) translateZ(-120px) scale(0.8);
+    opacity: 0.5;
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+    filter: blur(2px);
+  }
+
+  .carousel-slide[data-position="far-left"] {
+    transform: translate(calc(-50% - 480px), -50%) translateZ(-250px) scale(0.6);
+    opacity: 0;
+    z-index: 1;
+    filter: blur(4px);
+  }
+
+  .carousel-slide[data-position="far-right"] {
+    transform: translate(calc(-50% + 480px), -50%) translateZ(-250px) scale(0.6);
+    opacity: 0;
+    z-index: 1;
+    filter: blur(4px);
+  }
+
+  /* Arrow buttons */
+  .carousel-arrow {
+    position: absolute;
+    top: 220px;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.12);
+    border: 1.5px solid rgba(59, 130, 246, 0.5);
+    color: #93bbfc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.15);
+    animation: arrow-pulse 2.5s ease-in-out infinite;
+  }
+
+  .carousel-arrow:hover {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: #3b82f6;
+    color: #ffffff;
+    box-shadow: 0 0 24px rgba(59, 130, 246, 0.35);
+    animation: none;
+  }
+
+  @keyframes arrow-pulse {
+    0%, 100% { box-shadow: 0 0 16px rgba(59, 130, 246, 0.15); }
+    50% { box-shadow: 0 0 22px rgba(59, 130, 246, 0.3); }
+  }
+
+  .carousel-arrow-left {
+    left: max(0px, calc(50% - 340px));
+  }
+
+  .carousel-arrow-right {
+    right: max(0px, calc(50% - 340px));
+  }
+
+  /* Responsive - Tablet */
+  @media (max-width: 1023px) {
+    .carousel-viewport {
+      height: 400px;
+      perspective: 900px;
+    }
+
+    .carousel-slide {
+      width: 250px;
+    }
+
+    .carousel-slide[data-position="left"] {
+      transform: translate(calc(-50% - 230px), -50%) translateZ(-100px) scale(0.75);
+    }
+
+    .carousel-slide[data-position="right"] {
+      transform: translate(calc(-50% + 230px), -50%) translateZ(-100px) scale(0.75);
+    }
+
+    .carousel-arrow-left {
+      left: 8px;
+    }
+
+    .carousel-arrow-right {
+      right: 8px;
+    }
+  }
+
+  /* Responsive - Mobile */
+  @media (max-width: 767px) {
+    .carousel-viewport {
+      height: 380px;
+      perspective: none;
+    }
+
+    .carousel-slide {
+      width: min(260px, 70vw);
+    }
+
+    .carousel-slide[data-position="center"] {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .carousel-slide[data-position="left"] {
+      transform: translate(calc(-50% - 75%), -50%) scale(0.8);
+      opacity: 0.3;
+    }
+
+    .carousel-slide[data-position="right"] {
+      transform: translate(calc(-50% + 75%), -50%) scale(0.8);
+      opacity: 0.3;
+    }
+
+    .carousel-arrow {
+      width: 40px;
+      height: 40px;
+    }
+
+    .carousel-arrow-left {
+      left: 4px;
+    }
+
+    .carousel-arrow-right {
+      right: 4px;
+    }
+  }
+</style>
+
+<script>
+  const eqData = JSON.parse(document.getElementById('equipment-data')!.textContent!);
+  const slides = document.querySelectorAll<HTMLElement>('.carousel-slide');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  const nameEl = document.getElementById('carousel-name');
+  const modelEl = document.getElementById('carousel-model');
+  const counterEl = document.getElementById('carousel-counter');
+  const infoEl = document.getElementById('carousel-info');
+  const viewport = document.getElementById('carousel-viewport');
+
+  const total = slides.length;
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const leftIndex = (currentIndex - 1 + total) % total;
+    const rightIndex = (currentIndex + 1) % total;
+    const farLeftIndex = (currentIndex - 2 + total) % total;
+    const farRightIndex = (currentIndex + 2) % total;
+
+    slides.forEach((slide, i) => {
+      delete slide.dataset.position;
+      const link = slide.querySelector('a');
+      if (link) link.tabIndex = -1;
+    });
+
+    slides[farLeftIndex].dataset.position = 'far-left';
+    slides[leftIndex].dataset.position = 'left';
+    slides[currentIndex].dataset.position = 'center';
+    slides[rightIndex].dataset.position = 'right';
+    slides[farRightIndex].dataset.position = 'far-right';
+
+    const centerLink = slides[currentIndex].querySelector('a');
+    if (centerLink) centerLink.tabIndex = 0;
+
+    // Update info with fade
+    if (infoEl) {
+      infoEl.style.opacity = '0';
+      setTimeout(() => {
+        if (nameEl) nameEl.textContent = eqData[currentIndex].name;
+        if (modelEl) modelEl.textContent = eqData[currentIndex].model;
+        if (counterEl) counterEl.textContent = `${currentIndex + 1} of ${total}`;
+        infoEl.style.opacity = '1';
+      }, 150);
+    }
+  }
+
+  function goNext() {
+    currentIndex = (currentIndex + 1) % total;
+    updateCarousel();
+  }
+
+  function goPrev() {
+    currentIndex = (currentIndex - 1 + total) % total;
+    updateCarousel();
+  }
+
+  // Arrow click handlers
+  prevBtn?.addEventListener('click', goPrev);
+  nextBtn?.addEventListener('click', goNext);
+
+  // Side card click -> navigate carousel
+  slides.forEach((slide) => {
+    slide.addEventListener('click', (e) => {
+      const pos = slide.dataset.position;
+      if (pos === 'left') {
+        e.preventDefault();
+        goPrev();
+      } else if (pos === 'right') {
+        e.preventDefault();
+        goNext();
+      }
+      // center card: let the link work normally
+    });
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!viewport) return;
+    const rect = viewport.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!inView) return;
+
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goPrev(); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
+  });
+
+  // Touch/swipe support
+  let startX = 0;
+  let isDragging = false;
+
+  viewport?.addEventListener('pointerdown', (e) => {
+    startX = e.clientX;
+    isDragging = true;
+  });
+
+  viewport?.addEventListener('pointerup', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    const diff = e.clientX - startX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? goPrev() : goNext();
+    }
+  });
+
+  viewport?.addEventListener('pointercancel', () => { isDragging = false; });
+
+  // Initialize
+  updateCarousel();
+</script>

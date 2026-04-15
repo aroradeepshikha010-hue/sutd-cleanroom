@@ -2,7 +2,7 @@
 ---
 
 <section id="timeline" class="py-24 px-6 relative">
-  <div class="max-w-6xl mx-auto relative">
+  <div class="max-w-6xl mx-auto">
 
     <!-- Section heading -->
     <div class="text-center mb-20" data-reveal>
@@ -12,6 +12,9 @@
         design-AI-centric training & research excellence.
       </p>
     </div>
+
+    <!-- Timeline content wrapper (ball + line start here, after heading) -->
+    <div class="relative" id="timeline-content">
 
     <!-- Center timeline line -->
     <div class="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2 hidden lg:block"></div>
@@ -142,20 +145,22 @@
       <div class="absolute left-6 top-8 -translate-x-1/2 lg:hidden"><div class="w-2.5 h-2.5 rounded-full bg-surface-card border-2 border-border"></div></div>
     </div>
 
+    </div><!-- end timeline-content -->
+
   </div>
 </section>
 
 <script>
-  const section = document.getElementById('timeline');
+  const timelineContent = document.getElementById('timeline-content');
   const ball = document.getElementById('timeline-ball');
   const progress = document.getElementById('timeline-progress');
   const ballMobile = document.getElementById('timeline-ball-mobile');
   const progressMobile = document.getElementById('timeline-progress-mobile');
 
-  if (section && ball && progress) {
+  if (timelineContent && ball && progress) {
     let ticking = false;
     function updateTimeline() {
-      const rect = section.getBoundingClientRect();
+      const rect = timelineContent.getBoundingClientRect();
       const sectionHeight = rect.height;
       const viewportHeight = window.innerHeight;
       const scrolled = -rect.top + viewportHeight * 0.4;
