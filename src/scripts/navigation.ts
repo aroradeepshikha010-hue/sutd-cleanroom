@@ -5,9 +5,11 @@ let ticking = false;
 function updateNav() {
   if (!nav) return;
   if (window.scrollY > 60) {
-    nav.classList.add("bg-black/90", "backdrop-blur-md", "border-b", "border-border");
+    nav.classList.add("bg-surface/90", "backdrop-blur-md", "border-b", "border-border", "shadow-sm");
+    nav.classList.remove("nav-over-hero");
   } else {
-    nav.classList.remove("bg-black/90", "backdrop-blur-md", "border-b", "border-border");
+    nav.classList.remove("bg-surface/90", "backdrop-blur-md", "border-b", "border-border", "shadow-sm");
+    nav.classList.add("nav-over-hero");
   }
   ticking = false;
 }
@@ -31,10 +33,10 @@ const sectionObserver = new IntersectionObserver(
         navLinks.forEach((link) => {
           const href = link.getAttribute("href");
           if (href === `#${id}`) {
-            link.classList.add("text-white");
+            link.classList.add("text-text-primary");
             link.classList.remove("text-text-muted");
           } else {
-            link.classList.remove("text-white");
+            link.classList.remove("text-text-primary");
             link.classList.add("text-text-muted");
           }
         });

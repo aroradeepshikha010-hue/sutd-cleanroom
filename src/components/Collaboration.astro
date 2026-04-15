@@ -36,7 +36,7 @@ const opportunities = [
       {opportunities.map((opp) => (
         <div class="bg-surface-card border border-border rounded-xl p-6 hover:border-accent/30 hover:bg-accent/5 transition-all duration-300 group text-center">
           <div class="text-text-muted group-hover:text-accent transition-colors duration-300 flex justify-center mb-4" set:html={opp.icon} />
-          <h3 class="text-base font-semibold text-white mb-2">{opp.title}</h3>
+          <h3 class="text-base font-semibold text-text-primary mb-2">{opp.title}</h3>
           <p class="text-sm text-text-secondary leading-relaxed">{opp.description}</p>
         </div>
       ))}

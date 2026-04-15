@@ -46,7 +46,7 @@ import { equipment, categoryColors } from "../data/equipment";
 
                   {/* Label */}
                   <div class="p-3">
-                    <h3 class="text-sm font-semibold text-white leading-snug group-hover:text-accent transition-colors duration-200">
+                    <h3 class="text-sm font-semibold text-text-primary leading-snug group-hover:text-accent transition-colors duration-200">
                       {item.name}
                     </h3>
                     <p class="text-xs text-text-muted mt-0.5">{item.model}</p>
@@ -72,7 +72,7 @@ import { equipment, categoryColors } from "../data/equipment";
 
       <!-- Active equipment info -->
       <div id="carousel-info" class="text-center mt-8 transition-opacity duration-200" aria-live="polite">
-        <h3 id="carousel-name" class="text-xl md:text-2xl font-bold text-white"></h3>
+        <h3 id="carousel-name" class="text-xl md:text-2xl font-bold text-text-primary"></h3>
         <p id="carousel-model" class="text-sm text-accent font-medium mt-1"></p>
       </div>
 
@@ -122,7 +122,6 @@ import { equipment, categoryColors } from "../data/equipment";
     opacity: 1;
     z-index: 3;
     pointer-events: auto;
-    filter: blur(0px);
   }
 
   .carousel-slide[data-position="center"] .carousel-card {
@@ -140,7 +139,6 @@ import { equipment, categoryColors } from "../data/equipment";
     z-index: 2;
     pointer-events: auto;
     cursor: pointer;
-    filter: blur(2px);
   }
 
   .carousel-slide[data-position="right"] {
@@ -149,21 +147,18 @@ import { equipment, categoryColors } from "../data/equipment";
     z-index: 2;
     pointer-events: auto;
     cursor: pointer;
-    filter: blur(2px);
   }
 
   .carousel-slide[data-position="far-left"] {
     transform: translate(calc(-50% - 480px), -50%) translateZ(-250px) scale(0.6);
     opacity: 0;
     z-index: 1;
-    filter: blur(4px);
   }
 
   .carousel-slide[data-position="far-right"] {
     transform: translate(calc(-50% + 480px), -50%) translateZ(-250px) scale(0.6);
     opacity: 0;
     z-index: 1;
-    filter: blur(4px);
   }
 
   /* Arrow buttons */
@@ -175,38 +170,38 @@ import { equipment, categoryColors } from "../data/equipment";
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: rgba(59, 130, 246, 0.12);
-    border: 1.5px solid rgba(59, 130, 246, 0.5);
-    color: #93bbfc;
+    background: rgba(180, 83, 9, 0.08);
+    border: 1.5px solid rgba(180, 83, 9, 0.4);
+    color: #b45309;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.25s ease;
     backdrop-filter: blur(8px);
-    box-shadow: 0 0 16px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 0 16px rgba(180, 83, 9, 0.1);
     animation: arrow-pulse 2.5s ease-in-out infinite;
   }
 
   .carousel-arrow:hover {
-    background: rgba(59, 130, 246, 0.25);
-    border-color: #3b82f6;
-    color: #ffffff;
-    box-shadow: 0 0 24px rgba(59, 130, 246, 0.35);
+    background: rgba(180, 83, 9, 0.15);
+    border-color: #b45309;
+    color: #92400e;
+    box-shadow: 0 0 24px rgba(180, 83, 9, 0.25);
     animation: none;
   }
 
   @keyframes arrow-pulse {
-    0%, 100% { box-shadow: 0 0 16px rgba(59, 130, 246, 0.15); }
-    50% { box-shadow: 0 0 22px rgba(59, 130, 246, 0.3); }
+    0%, 100% { box-shadow: 0 0 16px rgba(180, 83, 9, 0.1); }
+    50% { box-shadow: 0 0 22px rgba(180, 83, 9, 0.2); }
   }
 
   .carousel-arrow-left {
-    left: max(0px, calc(50% - 340px));
+    left: 16px;
   }
 
   .carousel-arrow-right {
-    right: max(0px, calc(50% - 340px));
+    right: 16px;
   }
 
   /* Responsive - Tablet */

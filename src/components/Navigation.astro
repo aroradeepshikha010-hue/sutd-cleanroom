@@ -4,7 +4,7 @@ import { navLinks } from "../data/navigation";
 
 <nav
   id="main-nav"
-  class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 nav-over-hero"
 >
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Logo -->
@@ -17,7 +17,7 @@ import { navLinks } from "../data/navigation";
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="nav-link text-sm text-white/70 hover:text-white transition-colors duration-200"
+          class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
         >
           {link.label}
         </a>
@@ -27,7 +27,7 @@ import { navLinks } from "../data/navigation";
     <!-- Mobile menu button -->
     <button
       id="menu-toggle"
-      class="md:hidden text-white p-2"
+      class="md:hidden text-text-primary p-2"
       aria-label="Toggle menu"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,12 +39,12 @@ import { navLinks } from "../data/navigation";
   <!-- Mobile menu overlay -->
   <div
     id="mobile-menu"
-    class="hidden fixed inset-0 top-0 bg-black/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8"
+    class="hidden fixed inset-0 top-0 bg-surface/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8"
   >
     {navLinks.map((link) => (
       <a
         href={link.href}
-        class="text-2xl text-white/70 hover:text-white transition-colors duration-200"
+        class="text-2xl text-text-secondary hover:text-text-primary transition-colors duration-200"
       >
         {link.label}
       </a>
